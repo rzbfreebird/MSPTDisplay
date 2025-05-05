@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(AbstractRedstoneGateBlock.class)
 public class AbstractRedstoneGateMixin {
 
-    // 监控父类中scheduledTick方法
     @Inject(method = "scheduledTick", at = @At("HEAD"))
     private void onScheduledTickStart(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         MSPTDisplayMod.getInstance().recordBlockStart(world, pos);
@@ -27,7 +26,6 @@ public class AbstractRedstoneGateMixin {
         MSPTDisplayMod.getInstance().recordBlockEnd(world, pos);
     }
 
-    // 添加对updatePowered方法的监控（这个方法在父类中）
     @Inject(method = "updatePowered", at = @At("HEAD"))
     private void onUpdatePoweredStart(World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (!world.isClient) {
@@ -42,7 +40,6 @@ public class AbstractRedstoneGateMixin {
         }
     }
 
-    // 添加对neighborUpdate的监控（这个方法也在父类中）
     @Inject(method = "neighborUpdate", at = @At("HEAD"))
     private void onNeighborUpdateStart(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify, CallbackInfo ci) {
         if (!world.isClient) {

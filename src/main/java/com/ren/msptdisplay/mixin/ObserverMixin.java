@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ObserverBlock.class)
 public class ObserverMixin {
 
-    // 监控scheduledTick方法
     @Inject(method = "scheduledTick", at = @At("HEAD"))
     private void onScheduledTickStart(BlockState state, ServerWorld world, BlockPos pos, Random random, CallbackInfo ci) {
         MSPTDisplayMod.getInstance().recordBlockStart(world, pos);
@@ -26,7 +25,6 @@ public class ObserverMixin {
         MSPTDisplayMod.getInstance().recordBlockEnd(world, pos);
     }
 
-    // 监控updateNeighbors方法（侦测器特有）
     @Inject(method = "updateNeighbors", at = @At("HEAD"))
     private void onUpdateNeighborsStart(World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (!world.isClient) {

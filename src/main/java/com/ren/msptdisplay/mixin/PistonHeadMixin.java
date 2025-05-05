@@ -28,7 +28,6 @@ public class PistonHeadMixin {
         }
     }
 
-    // 修复neighborUpdate方法签名
     @Inject(method = "neighborUpdate", at = @At("HEAD"))
     private void onNeighborUpdateStart(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify, CallbackInfo ci) {
         if (!world.isClient) {

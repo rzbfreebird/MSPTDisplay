@@ -17,7 +17,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(RedstoneWireBlock.class)
 public class RedstoneWireMixin {
-    // 红石线的update方法是private的，使用的三个参数
     @Inject(method = "update", at = @At("HEAD"))
     private void onUpdateStart(@NotNull World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (!world.isClient) {
@@ -32,7 +31,6 @@ public class RedstoneWireMixin {
         }
     }
 
-    // getStateForNeighborUpdate 方法有多个参数
     @Inject(method = "getStateForNeighborUpdate", at = @At("HEAD"))
     private void onGetStateStart(BlockState state, Direction direction, BlockState neighborState,
                                  WorldAccess world, BlockPos pos, BlockPos neighborPos,
@@ -51,7 +49,6 @@ public class RedstoneWireMixin {
         }
     }
 
-    // 监听红石线的neighborUpdate方法
     @Inject(method = "neighborUpdate", at = @At("HEAD"))
     public void onNeighborUpdateStart(BlockState state, @NotNull World world, BlockPos pos,
                                       Block sourceBlock, BlockPos sourcePos, boolean notify,

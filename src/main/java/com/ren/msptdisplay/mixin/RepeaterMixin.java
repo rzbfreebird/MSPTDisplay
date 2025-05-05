@@ -19,7 +19,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(RepeaterBlock.class)
 public class RepeaterMixin {
 
-    // 监控getStateForNeighborUpdate方法
     @Inject(method = "getStateForNeighborUpdate", at = @At("HEAD"))
     private void onGetStateForNeighborUpdateStart(
             BlockState state, Direction direction, BlockState neighborState,
@@ -38,7 +37,6 @@ public class RepeaterMixin {
         }
     }
 
-    // 修正onUse方法的签名
     @Inject(method = "onUse", at = @At("HEAD"))
     private void onUseStart(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit, CallbackInfoReturnable<ActionResult> cir) {
         if (!world.isClient) {

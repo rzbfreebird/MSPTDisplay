@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PistonBlock.class)
 public class PistonMixin {
 
-    // 处理活塞移动尝试事件
     @Inject(method = "tryMove", at = @At("HEAD"))
     private void onTryMoveStart(World world, BlockPos pos, BlockState state, CallbackInfo ci) {
         if (!world.isClient) {
@@ -31,7 +30,6 @@ public class PistonMixin {
         }
     }
 
-    // 处理方块事件
     @Inject(method = "onSyncedBlockEvent", at = @At("HEAD"))
     private void onBlockEventStart(BlockState state, World world, BlockPos pos, int type, int data, CallbackInfoReturnable<Boolean> cir) {
         if (!world.isClient) {
@@ -46,7 +44,6 @@ public class PistonMixin {
         }
     }
 
-    // 监控实际移动操作
     @Inject(method = "move", at = @At("HEAD"))
     private void onMoveStart(World world, BlockPos pos, Direction dir, boolean retract, CallbackInfoReturnable<Boolean> cir) {
         if (!world.isClient) {
@@ -61,7 +58,6 @@ public class PistonMixin {
         }
     }
 
-    // 监控邻居更新事件 - 修正签名
     @Inject(method = "neighborUpdate", at = @At("HEAD"))
     private void onNeighborUpdateStart(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify, CallbackInfo ci) {
         if (!world.isClient) {
