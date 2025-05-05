@@ -139,7 +139,7 @@ showServerMspt: true
 
 如有问题或建议，请通过以下方式联系：
 
-- GitHub Issues: [创建新Issue](https://github.com/yourusername/msptdisplay/issues)
+- GitHub Issues: (https://github.com/rzbfreebird/msptdisplay/issues)
 - Email: rzbfreebird@gmail.com
 
 ---
