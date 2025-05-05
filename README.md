@@ -121,16 +121,6 @@ showServerMspt: true
 - Starlight
 - Phosphor
 
-## 🤝 贡献
-
-欢迎提交Pull Request帮助改进本模组。若要贡献代码，请遵循以下步骤：
-
-1. Fork本仓库
-2. 创建您的特性分支 (`git checkout -b feature/amazing-feature`)
-3. 提交您的更改 (`git commit -m 'Add some amazing feature'`)
-4. 推送到分支 (`git push origin feature/amazing-feature`)
-5. 开启Pull Request
-
 ## 📄 许可证
 
 本项目采用MIT许可证 - 详情参见 [LICENSE](LICENSE) 文件
@@ -139,7 +129,7 @@ showServerMspt: true
 
 如有问题或建议，请通过以下方式联系：
 
-- GitHub Issues: [创建新Issue](https://github.com/yourusername/msptdisplay/issues)
+- GitHub Issues: https://github.com/rzbfreebird/msptdisplay/issues
 - Email: rzbfreebird@gmail.com
 
 ---
